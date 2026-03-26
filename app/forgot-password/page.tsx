@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { AuthParticles } from "@/components/auth-particles";
 import { Footer } from "@/components/footer";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -56,12 +57,13 @@ export default function ForgotPasswordPage() {
 
         {/* Right: Visual Panel */}
         <div className="relative hidden md:flex items-center justify-center bg-gradient-to-br from-[#3b137a] via-[#481A93] to-[#5f23b5]">
+          <AuthParticles />
           <Image
             src="/auth_col_img_no_bg.png"
             alt="Authentication illustration"
             width={900}
             height={900}
-            className="w-[80%] max-w-[640px] h-auto object-contain"
+            className="relative z-10 w-[80%] max-w-[640px] h-auto object-contain"
             priority
           />
         </div>

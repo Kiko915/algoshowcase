@@ -7,6 +7,7 @@ import { Eye, EyeOff } from "lucide-react";
 import { Footer } from "@/components/footer";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { AuthParticles } from "@/components/auth-particles";
 
 export default function SignInPage() {
   const [showPassword, setShowPassword] = useState(false);
@@ -140,12 +141,13 @@ export default function SignInPage() {
 
         {/* Right: Visual Panel */}
         <div className="relative hidden md:flex items-center justify-center bg-[linear-gradient(135deg,#481A93_0%,#6A1FD0_50%,#3A0D7A_100%)] p-10">
+          <AuthParticles />
           <Image
             src="/auth_col_img_no_bg.png"
             alt="Project submissions dashboard illustration"
             width={900}
             height={900}
-            className="w-[85%] max-w-xl h-auto object-contain"
+            className="relative z-10 w-[85%] max-w-xl h-auto object-contain"
             priority
           />
         </div>

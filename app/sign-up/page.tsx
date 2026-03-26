@@ -7,6 +7,7 @@ import { Eye, EyeOff } from "lucide-react";
 import { Footer } from "@/components/footer";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { AuthParticles } from "@/components/auth-particles";
 
 export default function SignUpPage() {
   const [showPassword, setShowPassword] = useState(false);
@@ -169,12 +170,13 @@ export default function SignUpPage() {
 
         {/* Right: Visual Panel */}
         <div className="relative hidden md:flex items-center justify-center bg-gradient-to-br from-[#3b0f7a] via-[#5b1bb3] to-[#7a2eea] p-8">
+          <AuthParticles className="z-0" />
           <Image
             src="/auth_col_img_no_bg.png"
             alt="AlgoShowcase authentication visual"
             width={1000}
             height={1000}
-            className="w-[82%] max-w-[640px] h-auto object-contain"
+            className="relative z-10 w-[82%] max-w-[640px] h-auto object-contain"
             priority
           />
         </div>
