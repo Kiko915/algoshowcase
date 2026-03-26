@@ -1,0 +1,183 @@
+@import "tailwindcss";
+
+@plugin "tailwindcss-animate";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+    /* Fonts */
+    --font-sans: var(--font-public-sans), ui-sans-serif, system-ui, sans-serif;
+    --font-inter: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+    /* Typography Scale - The Editorial Voice */
+    --text-display-lg: 3.5rem;
+    --text-display-lg--letter-spacing: -0.02em;
+
+    --text-headline-md: 1.75rem;
+
+    --text-body-md: 0.875rem;
+    --text-body-md--line-height: 1.6;
+
+    --text-label-sm: 0.6875rem;
+    --text-label-sm--letter-spacing: 0.05em;
+
+    /* Shadcn / Tailwind System Colors (Mapped to The Digital Curator Palette) */
+
+    /* Base Layer: Expansive gallery floor */
+    --color-background: #f9f9f9;
+    --color-foreground: #0c0f0f; /* Inverse Surface / Deep Black */
+
+    /* Component Layer: Elevated Paper */
+    --color-card: #ffffff;
+    --color-card-foreground: #0c0f0f;
+
+    --color-popover: #ffffff;
+    --color-popover-foreground: #0c0f0f;
+
+    /* Primary CTAs: Monochromatic Plus One */
+    --color-primary: #5f5e5e;
+    --color-primary-foreground: #ffffff;
+
+    /* Pill Buttons / Secondary Categories */
+    --color-secondary: #e2e2e2;
+    --color-secondary-foreground: #0c0f0f;
+
+    /* Section Layer / Subtle Groupings */
+    --color-muted: #f2f4f4; /* surface-container-low */
+    --color-muted-foreground: #5a6061; /* on_surface_variant */
+
+    /* Active States: Electric Violet Signature */
+    --color-accent: #6100eb; /* tertiary */
+    --color-accent-foreground: #ffffff;
+
+    --color-destructive: #ff4a4a; /* Fallback red */
+    --color-destructive-foreground: #ffffff;
+
+    /* The "No-Line" Rule - Borders are invisible by default or use "Ghost" style */
+    --color-border: color-mix(
+        in srgb,
+        #adb3b4 10%,
+        transparent
+    ); /* outline_variant at 10% */
+    --color-input: color-mix(in srgb, #adb3b4 10%, transparent);
+    --color-ring: #6100eb; /* Electric Violet focus rings */
+
+    /* Custom Tokens from DESIGN.md */
+    --color-surface: #f9f9f9;
+    --color-surface-container-low: #f2f4f4;
+    --color-surface-container-lowest: #ffffff;
+    --color-surface-container: #ebeeef;
+    --color-inverse-surface: #0c0f0f;
+    --color-primary-dim: #535252;
+    --color-tertiary: #6100eb;
+    --color-outline-variant: #adb3b4;
+    --color-primary-fixed: #e5e2e1;
+
+    /* Full Radii for soft, modern furniture feel */
+    --radius-lg: 9999px;
+    --radius-md: 9999px;
+    --radius-sm: 9999px;
+
+    /* Ambient Occlusion Shadows */
+    --shadow-ambient: 0 10px 40px 0 color-mix(in srgb, #0c0f0f 4%, transparent);
+    --shadow-sm: var(--shadow-ambient);
+    --shadow-md: var(--shadow-ambient);
+    --shadow-lg: var(--shadow-ambient);
+
+    /* Animations */
+    --animate-accordion-down: accordion-down 0.2s ease-out;
+    --animate-accordion-up: accordion-up 0.2s ease-out;
+
+    @keyframes accordion-down {
+        from {
+            height: 0;
+        }
+        to {
+            height: var(--radix-accordion-content-height);
+        }
+    }
+    @keyframes accordion-up {
+        from {
+            height: var(--radix-accordion-content-height);
+        }
+        to {
+            height: 0;
+        }
+    }
+}
+
+@utility container {
+    margin-inline: auto;
+    padding-inline: 2rem;
+    @media (width >= --theme(--breakpoint-sm)) {
+        max-width: none;
+    }
+    @media (width >= 1400px) {
+        max-width: 1400px;
+    }
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+    body {
+        @apply bg-background text-foreground;
+        font-family: var(--font-sans);
+        /* Liquid, slow animations across the board */
+        transition:
+            background-color 0.3s ease,
+            color 0.3s ease;
+    }
+
+    /* Typography Classes */
+    .text-display-lg {
+        font-size: var(--text-display-lg);
+        letter-spacing: var(--text-display-lg--letter-spacing);
+        font-family: var(--font-sans);
+        font-weight: 300;
+    }
+
+    .text-headline-md {
+        font-size: var(--text-headline-md);
+        font-family: var(--font-sans);
+        font-weight: 500;
+    }
+
+    .text-body-md {
+        font-size: var(--text-body-md);
+        line-height: var(--text-body-md--line-height);
+        font-family: var(--font-sans);
+    }
+
+    .text-label-sm {
+        font-size: var(--text-label-sm);
+        letter-spacing: var(--text-label-sm--letter-spacing);
+        text-transform: uppercase;
+        font-family: var(--font-inter);
+        font-weight: 600;
+    }
+
+    /* Gradient & Glass Utilities */
+    .bg-primary-gradient {
+        background: linear-gradient(
+            135deg,
+            var(--color-primary),
+            var(--color-primary-dim)
+        );
+    }
+
+    .glass-panel {
+        background-color: color-mix(
+            in srgb,
+            var(--color-surface) 70%,
+            transparent
+        );
+        backdrop-filter: blur(20px);
+    }
+
+    .ghost-border-bottom {
+        border-bottom: 1px solid
+            color-mix(in srgb, var(--color-outline-variant) 15%, transparent);
+    }
+}
