@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Footer } from "@/components/footer";
-import { Navbar } from "@/components/navbar";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
@@ -13,28 +13,37 @@ export const metadata: Metadata = {
 export default function ReportBugPage() {
   return (
     <>
-      <Navbar />
       <section className="bg-background text-foreground">
-        <div className="container mx-auto px-6 py-24">
-          <div className="max-w-5xl mx-auto grid gap-12 md:grid-cols-[1.05fr_0.95fr]">
-            <div className="space-y-8">
-              <p className="text-label-sm text-muted-foreground tracking-[0.3em]">
-                Platform Reliability
-              </p>
-              <div className="space-y-4">
+        <div className="container mx-auto px-6 py-16">
+          <div className="max-w-5xl mx-auto grid gap-10 md:grid-cols-[1.05fr_0.95fr]">
+            <div className="space-y-6">
+              <div className="flex items-center gap-3">
+                <Image
+                  src="/logo/logo-primary.png"
+                  alt="AlgoShowcase"
+                  width={36}
+                  height={36}
+                  className="h-9 w-9 object-contain"
+                  priority
+                />
+                <p className="text-label-sm text-muted-foreground tracking-[0.3em]">
+                  Reliability Desk
+                </p>
+              </div>
+              <div className="space-y-3">
                 <h1 className="text-display-lg leading-tight">
                   Report a Platform Bug
                 </h1>
                 <p className="text-body-md max-w-xl">
                   Flag disruptions or unexpected behavior across the
                   AlgoShowcase platform. Submissions are routed to our
-                  reliability engineers for triage within one business day.
+                  reliability engineers within one business day.
                 </p>
               </div>
 
-              <div className="space-y-5">
+              <div className="space-y-4">
                 <div
-                  className="rounded-[32px] p-6"
+                  className="rounded-[24px] p-5"
                   style={{
                     backgroundColor: "var(--color-surface-container-low)",
                   }}
@@ -53,7 +62,7 @@ export default function ReportBugPage() {
                   </div>
                 </div>
                 <div
-                  className="rounded-[32px] p-6"
+                  className="rounded-[24px] p-5"
                   style={{
                     backgroundColor: "var(--color-surface-container-low)",
                   }}
@@ -75,7 +84,7 @@ export default function ReportBugPage() {
             </div>
 
             <form
-              className="space-y-6 rounded-[32px] p-8"
+              className="space-y-5 rounded-[24px] p-6"
               style={{
                 backgroundColor: "var(--color-surface-container-lowest)",
               }}
@@ -133,7 +142,7 @@ export default function ReportBugPage() {
 
               <Button
                 variant="accent"
-                className="w-full h-11 rounded-full text-base"
+                className="w-full h-11 rounded-full text-sm tracking-wide"
               >
                 Submit to Reliability Desk
               </Button>
