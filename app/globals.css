@@ -170,7 +170,7 @@
     .glass-panel {
         background-color: color-mix(
             in srgb,
-            var(--color-surface) 70%,
+            var(--color-surface-container-lowest) 80%,
             transparent
         );
         backdrop-filter: blur(20px);
