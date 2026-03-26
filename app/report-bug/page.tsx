@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Footer } from "@/components/footer";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { SeveritySelect } from "@/components/severity-select";
 
 export const metadata: Metadata = {
   title: "Report a Bug • AlgoShowcase",
@@ -107,17 +108,7 @@ export default function ReportBugPage() {
                 />
               </div>
 
-              <div className="space-y-2">
-                <label className="text-label-sm text-muted-foreground">
-                  Severity
-                </label>
-                <select className="w-full h-10 rounded-full border border-border bg-white text-sm px-4 focus:outline-none focus:ring-2 focus:ring-primary/50">
-                  <option>P1 – Critical outage</option>
-                  <option>P2 – Major workflow blocked</option>
-                  <option>P3 – Degraded experience</option>
-                  <option>P4 – Cosmetic issue</option>
-                </select>
-              </div>
+              <SeveritySelect />
 
               <div className="space-y-2">
                 <label className="text-label-sm text-muted-foreground">
