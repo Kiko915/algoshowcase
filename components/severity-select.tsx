@@ -54,7 +54,7 @@ export function SeveritySelect({
   value,
   onChange,
   label = "Severity",
-  description = "Choose the priority that best matches the impact.",
+  description,
   className,
 }: SeveritySelectProps) {
   const triggerRef = useRef<HTMLButtonElement | null>(null);
@@ -138,10 +138,12 @@ export function SeveritySelect({
   };
 
   return (
-    <div className={cn("space-y-2", className)}>
+    <div className={cn("space-y-1.5", className)}>
       <div className="space-y-1">
         <span className="text-label-sm text-muted-foreground">{label}</span>
-        <p className="text-body-md text-muted-foreground">{description}</p>
+        {description ? (
+          <p className="text-sm text-muted-foreground">{description}</p>
+        ) : null}
       </div>
 
       <input type="hidden" name={name} value={internalValue} />
@@ -149,14 +151,14 @@ export function SeveritySelect({
       <button
         ref={triggerRef}
         type="button"
-        className="w-full rounded-full border border-border bg-white px-5 py-3 text-left transition hover:bg-muted focus:outline-none focus:ring-2 focus:ring-primary/40"
+        className="w-full h-10 rounded-full border border-border bg-white px-4 text-left transition hover:bg-muted focus:outline-none focus:ring-2 focus:ring-primary/40"
         onClick={() => setOpen((prev) => !prev)}
       >
-        <div className="flex items-center justify-between gap-4">
-          <div className="flex items-center gap-3">
+        <div className="flex items-center justify-between gap-3">
+          <div className="flex items-center gap-2">
             <SeverityBadge color={selected.hue} />
             <div>
-              <p className="text-sm font-semibold text-foreground">
+              <p className="text-[13px] font-semibold text-foreground">
                 {selected.value} · {selected.title}
               </p>
               <p className="text-xs text-muted-foreground">{selected.body}</p>
@@ -173,7 +175,7 @@ export function SeveritySelect({
         createPortal(
           <div
             ref={menuRef}
-            className="z-50 rounded-3xl border border-border bg-white p-2"
+            className="z-50 rounded-2xl border border-border bg-white p-1.5"
             style={{
               position: "absolute",
               top: coords.top,
@@ -187,7 +189,7 @@ export function SeveritySelect({
                   <button
                     type="button"
                     className={cn(
-                      "w-full rounded-2xl px-4 py-3 text-left transition",
+                      "w-full rounded-xl px-3 py-2 text-left text-sm transition",
                       option.value === internalValue
                         ? "bg-muted"
                         : "hover:bg-muted/70",
@@ -219,7 +221,7 @@ export function SeveritySelect({
 function SeverityBadge({ color }: { color: string }) {
   return (
     <span
-      className="inline-flex h-8 w-8 items-center justify-center rounded-full text-xs font-bold text-white"
+      className="inline-flex h-6 w-6 items-center justify-center rounded-full text-[10px] font-bold text-white"
       style={{
         background: color,
       }}
