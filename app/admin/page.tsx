@@ -68,9 +68,9 @@ export default function AdminPage() {
               type="submit"
               className="w-full h-12 text-[14px]"
               style={{
-                background: "linear-gradient(135deg,#5F5E5E 0%,#535252 100%)",
+                background: "linear-gradient(135deg,#7A2EEA 0%,#6100EB 100%)",
                 color: "#FFFFFF",
-                border: "1px solid rgba(12,15,15,0.25)",
+                border: "1px solid rgba(97,0,235,0.35)",
               }}
             >
               Enter Console
