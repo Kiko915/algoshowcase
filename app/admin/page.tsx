@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
@@ -10,72 +11,79 @@ export const metadata: Metadata = {
 
 export default function AdminPage() {
   return (
-    <section className="min-h-screen bg-[#f7f8fa] flex items-center justify-center px-6 py-16">
-      <div className="w-full max-w-md">
+    <section className="min-h-screen bg-[#F9F9F9] flex items-center justify-center px-6 py-24">
+      <div className="w-full max-w-lg">
         <div
-          className="rounded-2xl p-8 space-y-6"
+          className="rounded-[32px] p-12 space-y-8 bg-white"
           style={{
-            background: "linear-gradient(180deg,#ffffff 0%,#f1f2f7 100%)",
-            boxShadow:
-              "0 18px 45px rgba(15,31,46,0.12), inset 0 1px 0 rgba(255,255,255,0.8)",
-            border: "1px solid rgba(15,31,46,0.05)",
+            boxShadow: "0 24px 60px rgba(12,15,15,0.08)",
           }}
         >
+          <div className="flex justify-center">
+            <Image
+              src="/logo/logo-primary.png"
+              alt="AlgoShowcase logo"
+              width={160}
+              height={48}
+              className="h-12 w-auto"
+              priority
+            />
+          </div>
+
           <div className="space-y-2 text-center">
-            <p className="text-[12px] font-semibold tracking-[0.4em] text-[#7a8799] uppercase">
-              Admin
+            <p className="text-label-sm tracking-[0.35em] text-[#5a6061] uppercase">
+              Administrator Access
             </p>
-            <h1 className="text-[28px] font-semibold text-[#0f1f2e]">
-              Slotra Control Room
+            <h1 className="text-headline-md text-[#0c0f0f]">
+              The Curator Console
             </h1>
-            <p className="text-[15px] text-[#4a5668]">
-              Enter your credentials to access the administrator console.
+            <p className="text-body-md text-[#5a6061] max-w-sm mx-auto">
+              Reserved for AlgoShowcase staff. Authenticate to oversee
+              submissions, curation, and gallery operations.
             </p>
           </div>
 
           <form className="space-y-5">
             <div className="space-y-2 text-left">
-              <label className="text-[12px] font-medium text-[#4a5668]">
-                Work Email
+              <label className="text-label-sm text-[#4a5668]">
+                Email Address
               </label>
               <Input
                 type="email"
-                placeholder="you@slotra.ph"
-                className="bg-white rounded-lg"
-                style={{
-                  boxShadow: "0 1px 2px rgba(0,0,0,0.04)",
-                  borderColor: "#d4d8de",
-                }}
+                placeholder="curator@algoshowcase.com"
+                className="bg-white rounded-full"
               />
             </div>
 
             <div className="space-y-2 text-left">
-              <label className="text-[12px] font-medium text-[#4a5668]">
-                Password
-              </label>
+              <label className="text-label-sm text-[#4a5668]">Password</label>
               <Input
                 type="password"
                 placeholder="••••••••"
-                className="bg-white rounded-lg"
-                style={{
-                  boxShadow: "0 1px 2px rgba(0,0,0,0.04)",
-                  borderColor: "#d4d8de",
-                }}
+                className="bg-white rounded-full"
               />
             </div>
 
-            <Button type="submit" className="w-full h-12 text-[14px]">
-              Sign in to Dashboard
+            <Button
+              type="submit"
+              className="w-full h-12 text-[14px]"
+              style={{
+                background: "linear-gradient(135deg,#5F5E5E 0%,#535252 100%)",
+                color: "#FFFFFF",
+                border: "1px solid rgba(12,15,15,0.25)",
+              }}
+            >
+              Enter Console
             </Button>
           </form>
 
-          <p className="text-[13px] text-center text-[#7a8799]">
-            Having trouble signing in?{" "}
+          <p className="text-[13px] text-center text-[#5a6061]">
+            Need assistance?{" "}
             <a
-              href="mailto:hello@slotra.ph"
-              className="text-[#2e3192] underline-offset-4 hover:underline"
+              href="mailto:support@algoshowcase.com"
+              className="text-[#6100EB] underline-offset-4 hover:underline"
             >
-              Contact support
+              Contact the curation team
             </a>
           </p>
         </div>
