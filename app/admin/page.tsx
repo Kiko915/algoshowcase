@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { AdminLoginForm } from "./login-form";
 
 export const metadata: Metadata = {
   title: "Admin Access • AlgoShowcase",
@@ -11,83 +10,52 @@ export const metadata: Metadata = {
 
 export default function AdminPage() {
   return (
-    <section className="min-h-screen bg-[#F9F9F9] flex items-center justify-center px-6 py-24">
-      <div className="w-full max-w-lg">
-        <div
-          className="rounded-[32px] p-12 space-y-8 bg-white"
-          style={{
-            boxShadow: "0 24px 60px rgba(12,15,15,0.08)",
-          }}
-        >
-          <div className="flex justify-center">
-            <Image
-              src="/logo/logo-primary.png"
-              alt="AlgoShowcase logo"
-              width={160}
-              height={48}
-              className="h-12 w-auto"
-              priority
-            />
-          </div>
+    <main className="min-h-screen bg-background flex items-center justify-center p-6 relative overflow-hidden">
+      {/* Optional ambient background texture - keeping it very subtle for enterprise look */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(242,244,244,1),_transparent_70%)]" />
 
-          <div className="space-y-2 text-center">
-            <p className="text-label-sm tracking-[0.35em] text-[#5a6061] uppercase">
-              Administrator Access
-            </p>
-            <h1 className="text-headline-md text-[#0c0f0f]">
-              The Curator Console
-            </h1>
-            <p className="text-body-md text-[#5a6061] max-w-sm mx-auto">
-              Reserved for AlgoShowcase staff. Authenticate to oversee
-              submissions, curation, and gallery operations.
-            </p>
-          </div>
-
-          <form className="space-y-5">
-            <div className="space-y-2 text-left">
-              <label className="text-label-sm text-[#4a5668]">
-                Email Address
-              </label>
-              <Input
-                type="email"
-                placeholder="curator@algoshowcase.com"
-                className="bg-white rounded-full"
+      <div className="w-full max-w-[380px] relative z-10">
+        {/* Component Layer: Elevated Paper */}
+        <div className="bg-card rounded-[2rem] p-8 md:p-10 shadow-md hover:shadow-lg transition-all duration-500 ease-out flex flex-col">
+          
+          {/* Header */}
+          <div className="flex flex-col items-center text-center space-y-4 mb-10">
+            <div className="h-10 flex items-center justify-center mb-1">
+              <Image
+                src="/logo/logo-primary.png"
+                alt="AlgoShowcase"
+                width={140}
+                height={40}
+                className="h-8 w-auto opacity-90"
+                priority
               />
             </div>
-
-            <div className="space-y-2 text-left">
-              <label className="text-label-sm text-[#4a5668]">Password</label>
-              <Input
-                type="password"
-                placeholder="••••••••"
-                className="bg-white rounded-full"
-              />
+            <div className="space-y-2">
+              <p className="text-label-sm text-muted-foreground uppercase tracking-widest">
+                Admin Console
+              </p>
+              <h1 className="text-headline-md text-foreground font-light leading-tight">
+                Curator Access
+              </h1>
             </div>
+          </div>
 
-            <Button
-              type="submit"
-              className="w-full h-12 text-[14px]"
-              style={{
-                background: "linear-gradient(135deg,#7A2EEA 0%,#6100EB 100%)",
-                color: "#FFFFFF",
-                border: "1px solid rgba(97,0,235,0.35)",
-              }}
-            >
-              Enter Console
-            </Button>
-          </form>
+          <AdminLoginForm />
 
-          <p className="text-[13px] text-center text-[#5a6061]">
-            Need assistance?{" "}
-            <a
-              href="mailto:support@algoshowcase.com"
-              className="text-[#6100EB] underline-offset-4 hover:underline"
-            >
-              Contact the curation team
-            </a>
-          </p>
+          {/* Footer */}
+          <div className="mt-8 text-center px-2">
+            <p className="text-label-sm text-muted-foreground normal-case tracking-normal">
+              Need assistance?{" "}
+              <a
+                href="mailto:support@algoshowcase.com"
+                className="text-accent hover:underline underline-offset-4 font-medium transition-colors"
+              >
+                Contact staff
+              </a>
+            </p>
+          </div>
         </div>
       </div>
-    </section>
+    </main>
   );
 }
