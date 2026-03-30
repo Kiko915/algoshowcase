@@ -47,20 +47,19 @@ export function AdminSidebar({
       </button>
 
       {/* Brand */}
-      <div className={cn("mb-14 px-6 flex items-center h-8", isCollapsed && "lg:justify-center lg:px-0")}>
+      <div className={cn("mb-14 flex items-center h-8", isCollapsed ? "justify-center px-0" : "px-6")}>
         <Link href="/admin/dashboard" className="flex items-center gap-2 outline-none" onClick={closeMobile}>
-          {isCollapsed ? (
-            <div className="h-8 w-8 bg-muted rounded-full flex items-center justify-center font-bold text-foreground">A</div>
-          ) : (
-            <Image
-              src="/logo/logo-primary.png"
-              alt="AlgoShowcase"
-              width={120}
-              height={32}
-              className="h-7 w-auto opacity-90 transition-opacity hover:opacity-100"
-              priority
-            />
-          )}
+          <Image
+            src="/logo/logo-primary.png"
+            alt="AlgoShowcase"
+            width={120}
+            height={32}
+            className={cn(
+               "w-auto opacity-90 transition-all duration-300 hover:opacity-100",
+               isCollapsed ? "h-[1.1rem]" : "h-7"
+            )}
+            priority
+          />
         </Link>
       </div>
 
