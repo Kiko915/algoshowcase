@@ -14,7 +14,7 @@ export default function AdminPage() {
       {/* Optional ambient background texture - keeping it very subtle for enterprise look */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(242,244,244,1),_transparent_70%)]" />
 
-      <div className="w-full max-w-[380px] relative z-10">
+      <div className="w-full max-w-[440px] relative z-10">
         {/* Component Layer: Elevated Paper */}
         <div className="bg-card rounded-[2rem] p-8 md:p-10 shadow-md hover:shadow-lg transition-all duration-500 ease-out flex flex-col">
           

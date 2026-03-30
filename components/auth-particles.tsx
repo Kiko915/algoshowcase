@@ -1,8 +1,8 @@
 "use client";
 
-import { useCallback } from "react";
-import Particles from "@tsparticles/react";
-import type { Engine, ISourceOptions } from "@tsparticles/engine";
+import { useEffect, useState } from "react";
+import Particles, { initParticlesEngine } from "@tsparticles/react";
+import type { ISourceOptions } from "@tsparticles/engine";
 import { loadSlim } from "@tsparticles/slim";
 import { cn } from "@/lib/utils";
 
@@ -11,8 +11,14 @@ type AuthParticlesProps = {
 };
 
 export function AuthParticles({ className }: AuthParticlesProps) {
-  const particlesInit = useCallback(async (engine: Engine) => {
-    await loadSlim(engine);
+  const [init, setInit] = useState(false);
+
+  useEffect(() => {
+    initParticlesEngine(async (engine) => {
+      await loadSlim(engine);
+    }).then(() => {
+      setInit(true);
+    });
   }, []);
 
   const options: ISourceOptions = {
@@ -20,7 +26,7 @@ export function AuthParticles({ className }: AuthParticlesProps) {
     fpsLimit: 60,
     background: { color: "transparent" },
     particles: {
-      number: { value: 90, density: { enable: true, area: 900 } },
+      number: { value: 250, density: { enable: true, area: 900 } },
       color: { value: "#F2E9FF" },
       opacity: { value: 0.6 },
       size: { value: { min: 1, max: 4 } },
@@ -47,10 +53,11 @@ export function AuthParticles({ className }: AuthParticlesProps) {
     detectRetina: true,
   };
 
+  if (!init) return null;
+
   return (
     <Particles
       id="auth-particles"
-      init={particlesInit}
       options={options}
       className={cn("absolute inset-0 z-0 pointer-events-none", className)}
       style={{ width: "100%", height: "100%" }}
