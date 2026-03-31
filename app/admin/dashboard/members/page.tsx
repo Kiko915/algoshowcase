@@ -26,29 +26,29 @@ export default function AdminMembersPage() {
       </div>
 
       {/* Roster List / Card */}
-      <div className="bg-card rounded-[2rem] p-8 shadow-sm">
+      <div className="bg-linear-to-b from-card to-card/50 rounded-4xl p-8 shadow-sm border border-border/20">
         <div className="space-y-6">
           {[
-            { name: "Eleanor Vance", role: "Head Curator", email: "eleanor@algoshowcase.com" },
-            { name: "David Chen", role: "Staff Reviewer", email: "david.c@algoshowcase.com" },
-            { name: "System Admin", role: "Superuser", email: "sysadmin@algoshowcase.com" },
+            { name: "Eleanor Vance", role: "Head Curator", email: "eleanor@algoshowcase.com", color: "text-accent", bg: "bg-accent/10" },
+            { name: "David Chen", role: "Staff Reviewer", email: "david.c@algoshowcase.com", color: "text-primary", bg: "bg-primary/10" },
+            { name: "System Admin", role: "Superuser", email: "sysadmin@algoshowcase.com", color: "text-destructive", bg: "bg-destructive/10" },
           ].map((member, i) => (
-            <div key={i} className="flex items-center gap-6 group">
-              <div className="h-14 w-14 rounded-full bg-muted flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
-                <span className="text-sm font-medium tracking-wide text-muted-foreground uppercase">
+            <div key={i} className="flex items-center gap-6 group hover:bg-muted/30 p-4 -mx-4 rounded-2xl transition-colors duration-300">
+              <div className={`h-14 w-14 rounded-full flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300 shadow-inner ${member.bg}`}>
+                <span className={`text-sm font-semibold tracking-wide uppercase ${member.color}`}>
                   {member.name.slice(0, 2)}
                 </span>
               </div>
               <div className="flex-1 border-b border-border/40 pb-6 group-last:border-0 group-last:pb-0 flex flex-col sm:flex-row justify-between sm:items-center">
                 <div>
-                  <p className="text-headline-md font-medium text-foreground tracking-tight">
+                  <p className="text-headline-md font-medium text-foreground tracking-tight group-hover:text-accent transition-colors duration-300">
                     {member.name}
                   </p>
-                  <p className="text-label-sm text-accent mt-1 tracking-widest uppercase">
+                  <p className={`text-label-sm mt-1 tracking-widest uppercase ${member.color}`}>
                     {member.role}
                   </p>
                 </div>
-                <div className="mt-2 sm:mt-0 flex items-center gap-2 text-muted-foreground">
+                <div className="mt-2 sm:mt-0 flex items-center gap-2 text-muted-foreground group-hover:text-foreground transition-colors duration-300">
                   <Mail className="h-4 w-4" />
                   <span className="text-body-md">{member.email}</span>
                 </div>

@@ -14,12 +14,13 @@ export default function AdminProfilePage() {
         </p>
       </div>
 
-      <div className="max-w-3xl bg-card rounded-[2rem] p-10 shadow-sm relative overflow-hidden">
-        {/* Decorative background element or gradient could sit here if needed */}
+      <div className="max-w-3xl bg-linear-to-b from-card to-card/50 rounded-4xl p-10 border border-border/20 shadow-sm relative overflow-hidden">
+        {/* Subtle decorative glow orb */}
+        <div className="absolute -top-32 -right-32 w-96 h-96 bg-accent/5 rounded-full blur-[100px] pointer-events-none" />
         
-        <div className="flex items-center gap-8 mb-12">
-          <div className="h-24 w-24 rounded-full bg-muted flex items-center justify-center">
-            <UserCircle className="h-10 w-10 text-muted-foreground" />
+        <div className="flex flex-col sm:flex-row sm:items-center gap-8 mb-12 relative z-10">
+          <div className="h-28 w-28 rounded-full bg-linear-to-br from-accent/10 to-accent/5 flex items-center justify-center shrink-0 shadow-inner border border-accent/10">
+            <UserCircle className="h-12 w-12 text-accent" strokeWidth={1.5} />
           </div>
           <div>
             <h2 className="text-display-lg text-foreground font-light text-[2.5rem]">

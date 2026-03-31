@@ -54,15 +54,15 @@ export default function AdminProjectsPage() {
         </div>
       </div>
 
-      {/* Content Area - Placeholder for filtered items */}
-      <div className="min-h-[400px] flex items-center justify-center p-8 bg-card rounded-[2rem] shadow-sm">
+      {/* Content Area - Filtered items */}
+      <div className="min-h-[400px] flex items-center justify-center p-8 bg-linear-to-br from-accent/2 to-card rounded-4xl border border-dashed border-accent/20 shadow-[0_10px_40px_rgba(12,15,15,0.02)] transition-all duration-500">
         <div className="text-center space-y-4">
-          <div className="h-16 w-16 bg-muted rounded-full flex items-center justify-center mx-auto mb-4">
-            <span className="text-muted-foreground text-sm tracking-widest uppercase">Null</span>
+          <div className="h-16 w-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-6 shadow-inner">
+            <span className="text-accent font-semibold tracking-widest uppercase text-xs">Null</span>
           </div>
-          <p className="text-headline-md font-light">No {activeTab} Records</p>
-          <p className="text-body-md text-muted-foreground">
-            There are currently no projects sitting in this queue.
+          <p className="text-headline-md font-light text-foreground">No {activeTab} Records</p>
+          <p className="text-body-md text-muted-foreground max-w-sm mx-auto">
+            There are currently no projects sitting in this queue. Try adjusting your filters or search query.
           </p>
         </div>
       </div>
